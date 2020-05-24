@@ -29,20 +29,29 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 // import ListItem from './listItem';
-
-
+import {Provider} from 'react-redux'
+import {createStore} from 'redux'
 const Stack = createStackNavigator();
+const initialState = {
+  counter:0
+}
+const reducer = (state = initialState) => {
+  return state;
+}
+const store = createStore(reducer)
 
 function App() {
 
 
   return (
+    // <Provider>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
+    // {/* </Provider> */}
   );
 }
 

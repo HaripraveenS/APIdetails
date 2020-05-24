@@ -13,7 +13,7 @@ import {
   Button,
   FlatList,
 } from 'react-native';
-
+import { connect } from 'react-redux'
 import {
   Header,
   LearnMoreLinks,
@@ -115,12 +115,8 @@ class HomeScreen extends Component {
         });
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
+      {/* <Text>Home Screen</Text> */}
       
-      <Button
-        title="Go to Details"
-        onPress={() => this.props.navigation.navigate('Details')}
-      />
       <FlatList
         let data={this.state.datasource}
         renderItem={({ item }) => <Item title={item.title} navigator = {this.props.navigation} ide ={item.id}/>}
@@ -135,5 +131,10 @@ class HomeScreen extends Component {
     }
 }
 }
-
-export default HomeScreen;
+// function mapstatetoprop(count){
+//     return{
+//         counter : state.counter
+//     }
+// }
+// export default connect(mapstatetoprop)(HomeScreen);
+export default HomeScreen
